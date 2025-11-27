@@ -3,7 +3,6 @@ FROM instrumentisto/coturn
 ENV TURN_USERNAME=chat
 ENV TURN_PASSWORD=12345
 ENV REALM=omegle-chat
-ENV EXTERNAL_IP=0.0.0.0
 
 CMD ["turnserver",
 "--lt-cred-mech",
@@ -15,4 +14,6 @@ CMD ["turnserver",
 "--max-port=65535",
 "--no-multicast-peers",
 "--no-loopback-peers",
-"--log-file=stdout"]
+"--log-file=stdout",
+"--external-ip=$(curl -s https://api.ipify.org)"
+]
