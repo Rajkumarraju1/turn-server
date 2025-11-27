@@ -21,4 +21,4 @@ EXPOSE 49152-65535/udp
 #   -p 3478:3478/udp \
 #   -p 49152-65535:49152-65535/udp \
 #   yourimage
-CMD ["sh",    --[ //-2]--   "-c", "turnserver --lt-cred-mech --fingerprint --user=${TURN_USERNAME}:${TURN_PASSWORD} --realm=${REALM} --listening-port=3478 --min-port=49152 --max-port=65535 --no-multicast-peers --no-loopback-peers --log-file=stdout --external-ip=${EXTERNAL_IP:-$(curl -s https://api.ipify.org)}"]
+CMD ["sh",  "-c", "turnserver --lt-cred-mech --fingerprint --user=${TURN_USERNAME}:${TURN_PASSWORD} --realm=${REALM} --listening-port=3478 --min-port=49152 --max-port=65535 --no-multicast-peers --no-loopback-peers --log-file=stdout --external-ip=${EXTERNAL_IP:-$(curl -s https://api.ipify.org)}"]
